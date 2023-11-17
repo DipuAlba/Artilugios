@@ -9,7 +9,7 @@
 		<Title>Internal use package with utilities for SEDIPUALB@</Title>
 		<Description>Internal use package with utilities for SEDIPUALB@</Description>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+		<ProduceReferenceAssembly>True</ProduceReferenceAssembly>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
