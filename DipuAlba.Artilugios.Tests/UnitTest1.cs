@@ -1,4 +1,5 @@
 using System;
+using DipuAlba.Artilugios.Extensions;
 using NUnit.Framework;
 
 namespace DipuAlba.Artilugios.Tests
