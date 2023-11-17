@@ -7,6 +7,9 @@ namespace DipuAlba.Artilugios.Extensions
 {
     public static class TextExtensions
     {
+        /// <summary>
+        /// Removes diacritics from texts. Example: "En España está un pingüino" becomes "En Espana esta un pinguino"
+        /// </summary>
         public static string RemoveDiacritics(this string text)
         {
             var normalizedString = text.Normalize(NormalizationForm.FormD);
