@@ -39,7 +39,7 @@ namespace DipuAlba.Artilugios.Extensions
         /// </summary>
         public static string GetInnerExceptionsConcatMessage(this Exception ex, string joinSymbol = " => ")
         {
-            return ex.GetInnerExceptionsMessages().Aggregate((c, n) => $"{c} {joinSymbol} {n}");
+            return ex.GetInnerExceptionsMessages().Aggregate((c, n) => $"{c}{joinSymbol}{n}");
         }
 
 
