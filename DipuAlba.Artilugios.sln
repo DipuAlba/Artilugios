@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DipuAlba.Artilugios", "DipuAlba.Artilugios\DipuAlba.Artilugios.csproj", "{92801DF7-3B08-4490-B861-E051ECF443A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DipuAlba.Artilugios.Tests", "DipuAlba.Artilugios.Tests\DipuAlba.Artilugios.Tests.csproj", "{FBCC23D4-5F7A-4A37-AB9A-C5E5AD77FC18}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{92801DF7-3B08-4490-B861-E051ECF443A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92801DF7-3B08-4490-B861-E051ECF443A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92801DF7-3B08-4490-B861-E051ECF443A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBCC23D4-5F7A-4A37-AB9A-C5E5AD77FC18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBCC23D4-5F7A-4A37-AB9A-C5E5AD77FC18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBCC23D4-5F7A-4A37-AB9A-C5E5AD77FC18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBCC23D4-5F7A-4A37-AB9A-C5E5AD77FC18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
