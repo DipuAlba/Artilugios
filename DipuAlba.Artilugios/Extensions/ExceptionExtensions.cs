@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DipuAlba.Artilugios
+namespace DipuAlba.Artilugios.Extensions
 {
-    public static class Extensiones
+    public static class ExceptionExtensions
     {
         /// <summary>
-        /// Devuelve todas las excepciones internas de una excepción en una lista
+        /// Returns all internal exceptions of an exception in a list
         /// </summary>
         /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<Exception> GetInnerExceptions(this Exception ex)
@@ -27,20 +27,21 @@ namespace DipuAlba.Artilugios
         }
 
         /// <summary>
-        /// Devuelve los mensajes de las excepciones en una lista
+        /// Returns exception messages in a list
         /// </summary>
         public static IEnumerable<string> GetInnerExceptionsMessages(this Exception ex)
         {
-            return ex.GetInnerExceptions().Select(m =>  m.Message);
+            return ex.GetInnerExceptions().Select(m => m.Message);
         }
 
         /// <summary>
-        /// Devuelve los mensajes del as excepciones concatenados con un símbolo
+        /// Returns exception messages concatenated with a symbol
         /// </summary>
-        /// <param name="joinSymbol">Por defecto el símbolo => </param>
         public static string GetInnerExceptionsConcatMessage(this Exception ex, string joinSymbol = " => ")
         {
             return ex.GetInnerExceptionsMessages().Aggregate((c, n) => $"{c} {joinSymbol} {n}");
         }
+
+
     }
 }
