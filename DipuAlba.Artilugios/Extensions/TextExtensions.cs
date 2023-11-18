@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Text;
 
 namespace DipuAlba.Artilugios.Extensions
@@ -28,5 +29,26 @@ namespace DipuAlba.Artilugios.Extensions
                 .ToString()
                 .Normalize(NormalizationForm.FormC);
         }
+
+        /// <summary>
+        /// Devuelve sólo los caracteres indicados en el alfabeto
+        /// </summary>
+        public static string RemoveSymbols(this string txt, string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 ")
+        {
+            if (txt == null) throw new ArgumentNullException(nameof(txt));
+            if (alphabet == null) throw new ArgumentNullException(nameof(alphabet));
+
+            var allowedChars = new HashSet<char>(alphabet);
+            var result = new StringBuilder();
+
+            foreach (var c in txt.Where(c => allowedChars.Contains(c)))
+            {
+                result.Append(c);
+            }
+
+            return result.ToString();
+        }
+
+
     }
 }
