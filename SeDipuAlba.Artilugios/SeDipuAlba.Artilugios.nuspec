@@ -15,6 +15,7 @@
     <releaseNotes>$id$</releaseNotes>
     <copyright>$copyright$</copyright>
     <readme>readme.md</readme>
+	<repository type="git" url="https://github.com/DipuAlba/Artilugios.git" branch="develop" commit="$mycommit$" />
   </metadata>
 	<files>
 		<file src="readme.md" target="\" />
