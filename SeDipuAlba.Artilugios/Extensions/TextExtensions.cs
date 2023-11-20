@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 
-namespace DipuAlba.Artilugios.Extensions
+namespace SeDipuAlba.Artilugios.Extensions
 {
     public static class TextExtensions
     {

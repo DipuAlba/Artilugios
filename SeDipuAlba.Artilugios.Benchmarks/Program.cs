@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using BenchmarkDotNet.Running;
-using DipuAlba.Artilugios.Benchmarks;
+using SeDipuAlba.Artilugios.Benchmarks;
 
 Console.WriteLine("Hello, World!");
 

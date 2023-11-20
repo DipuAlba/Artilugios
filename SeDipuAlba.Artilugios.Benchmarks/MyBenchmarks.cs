@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DipuAlba.Artilugios.Extensions;
+using SeDipuAlba.Artilugios.Extensions;
 
 
-namespace DipuAlba.Artilugios.Benchmarks
+namespace SeDipuAlba.Artilugios.Benchmarks
 {
     [MemoryDiagnoser]
     public class MyBenchmarks

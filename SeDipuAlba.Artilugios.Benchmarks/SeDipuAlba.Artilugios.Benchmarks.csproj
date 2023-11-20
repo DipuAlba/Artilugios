@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DipuAlba.Artilugios\DipuAlba.Artilugios.csproj" />
+    <ProjectReference Include="..\SeDipuAlba.Artilugios\SeDipuAlba.Artilugios.csproj" />
   </ItemGroup>
 
 </Project>

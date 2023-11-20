@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace DipuAlba.Artilugios
+namespace SeDipuAlba.Artilugios
 {
     /// <summary>
     /// Password generator for WsSegPass SEDIPUALB@

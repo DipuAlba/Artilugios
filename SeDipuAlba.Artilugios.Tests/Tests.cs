@@ -1,8 +1,8 @@
 using System;
-using DipuAlba.Artilugios.Extensions;
+using SeDipuAlba.Artilugios.Extensions;
 using NUnit.Framework;
 
-namespace DipuAlba.Artilugios.Tests
+namespace SeDipuAlba.Artilugios.Tests
 {
     public class Tests
     {
@@ -24,7 +24,7 @@ namespace DipuAlba.Artilugios.Tests
         [Test]
         public void HashedPassword()
         {
-            Assert.AreEqual("20300101000000f9XoDw0SE1Wcag37Pvph0FdSNX1zL4g7M+M9unurRQY=", new DipuAlba.Artilugios.HashedPassword("1234567890").Generate(new DateTime(2030, 1, 1)));
+            Assert.AreEqual("20300101000000f9XoDw0SE1Wcag37Pvph0FdSNX1zL4g7M+M9unurRQY=", new SeDipuAlba.Artilugios.HashedPassword("1234567890").Generate(new DateTime(2030, 1, 1)));
         }
 
         [Test]

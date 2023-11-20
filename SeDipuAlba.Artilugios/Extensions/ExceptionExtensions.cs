@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DipuAlba.Artilugios.Extensions
+namespace SeDipuAlba.Artilugios.Extensions
 {
     public static class ExceptionExtensions
     {
