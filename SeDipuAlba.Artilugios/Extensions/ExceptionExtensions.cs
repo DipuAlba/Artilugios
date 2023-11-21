@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace SeDipuAlba.Artilugios.Extensions
 {
+    /// <summary>
+    /// Extensions for handling exceptions
+    /// </summary>
     public static class ExceptionExtensions
     {
         /// <summary>

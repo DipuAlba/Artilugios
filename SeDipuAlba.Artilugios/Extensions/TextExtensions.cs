@@ -6,6 +6,9 @@ using System.Text;
 
 namespace SeDipuAlba.Artilugios.Extensions
 {
+    /// <summary>
+    /// Extensions for handling string texts
+    /// </summary>
     public static class TextExtensions
     {
         /// <summary>

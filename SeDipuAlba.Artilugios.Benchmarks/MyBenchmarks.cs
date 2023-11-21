@@ -12,7 +12,7 @@ namespace SeDipuAlba.Artilugios.Benchmarks
     [MemoryDiagnoser]
     public class MyBenchmarks
     {
-        private string _elQuijote;
+        private string? _elQuijote;
         [GlobalSetup]
         public void GlobalSetup()
         {
@@ -36,7 +36,7 @@ namespace SeDipuAlba.Artilugios.Benchmarks
         public void MyCandidateBenchmarkMethod()
         {
             //Write your code here
-            var resultado = CandidateBenchmarkMethod(_elQuijote);
+            var resultado = CandidateBenchmarkMethod(_elQuijote!);
         }
 
         private static string CandidateBenchmarkMethod(string txt, string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 ")

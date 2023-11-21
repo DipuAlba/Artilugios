@@ -13,6 +13,11 @@ namespace SeDipuAlba.Artilugios
     {
         private readonly string _clearPassword;
 
+        /// <summary>
+        /// Password generator for WsSegPass SEDIPUALB@
+        /// https://pre.sedipualba.es/hashedpassword/
+        /// </summary>
+        /// <param name="clearPassword">Password provided by SEDIPUALB@</param>
         public HashedPassword(string clearPassword)
         {
             if (string.IsNullOrEmpty(clearPassword)) throw new ArgumentNullException(nameof(clearPassword));
