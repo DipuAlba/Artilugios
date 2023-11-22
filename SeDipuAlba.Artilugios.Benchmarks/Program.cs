@@ -4,4 +4,5 @@ using SeDipuAlba.Artilugios.Benchmarks;
 
 Console.WriteLine("Hello, World!");
 
-var summary = BenchmarkRunner.Run<MyBenchmarks>();
+//var summary1 = BenchmarkRunner.Run<MyRemoveSymbolsBenchmarks>();
+var summary2 = BenchmarkRunner.Run<MyCryptoBenchmarks>();

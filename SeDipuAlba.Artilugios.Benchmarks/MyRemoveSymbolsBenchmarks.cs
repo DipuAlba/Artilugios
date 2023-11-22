@@ -10,7 +10,7 @@ using SeDipuAlba.Artilugios.Extensions;
 namespace SeDipuAlba.Artilugios.Benchmarks
 {
     [MemoryDiagnoser]
-    public class MyBenchmarks
+    public class MyRemoveSymbolsBenchmarks
     {
         private string? _elQuijote;
         [GlobalSetup]
