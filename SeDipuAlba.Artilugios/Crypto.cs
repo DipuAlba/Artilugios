@@ -16,7 +16,7 @@ namespace SeDipuAlba.Artilugios
         /// </summary>
         /// <param name="plainText">Text to encrypt.</param>
         /// <param name="sharedSecret">Password for key generation.</param>
-        /// <param name="salt">Salt for key generation.</param>
+        /// <param name="salt">Salt for key generation. At least 8 bytes.</param>
         /// <returns>Encrypted string in Base64 format.</returns>
         public static string EncryptStringAES(string plainText, string sharedSecret, string salt)
         {
@@ -28,7 +28,7 @@ namespace SeDipuAlba.Artilugios
         /// </summary>
         /// <param name="plainText">Text to encrypt.</param>
         /// <param name="sharedSecret">Password for key generation.</param>
-        /// <param name="salt">Salt for key generation.</param>
+        /// <param name="salt">Salt for key generation. At least 8 bytes.</param>
         /// <returns>Encrypted string in Base64 format.</returns>
         public static string EncryptStringAES(string plainText, string sharedSecret, byte[] salt)
         {
@@ -77,7 +77,7 @@ namespace SeDipuAlba.Artilugios
         /// </summary>
         /// <param name="cipherText">Encrypted text in Base64 format.</param>
         /// <param name="sharedSecret">Password for key generation.</param>
-        /// <param name="salt">Salt for key generation.</param>
+        /// <param name="salt">Salt for key generation. At least 8 bytes.</param>
         /// <returns>Decrypted string.</returns>
         public static string DecryptStringAES(string cipherText, string sharedSecret, string salt)
         {
@@ -89,7 +89,7 @@ namespace SeDipuAlba.Artilugios
         /// </summary>
         /// <param name="cipherText">Encrypted text in Base64 format.</param>
         /// <param name="sharedSecret">Password for key generation.</param>
-        /// <param name="salt">Salt for key generation.</param>
+        /// <param name="salt">Salt for key generation. At least 8 bytes.</param>
         /// <returns>Decrypted string.</returns>
         public static string DecryptStringAES(string cipherText, string sharedSecret, byte[] salt)
         {
