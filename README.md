@@ -6,3 +6,18 @@ Free to use. The library has various utilities and extensions for processing tex
 
 NuGet package:
 https://www.nuget.org/packages/SeDipuAlba.Artilugios
+
+# References
+
+## [SeDipuAlba.Artilugios](SeDipuAlba.Artilugios)
+
+- [`Crypto`](SeDipuAlba.Artilugios#crypto)
+- [`Guard`](SeDipuAlba.Artilugios#guard)
+- [`HashedPassword`](SeDipuAlba.Artilugios#hashedpassword)
+- [`StringMask`](SeDipuAlba.Artilugios#stringmask)
+
+## [SeDipuAlba.Artilugios.Extensions](SeDipuAlba.Artilugios.Extensions)
+
+- [`ExceptionExtensions`](SeDipuAlba.Artilugios.Extensions#exceptionextensions)
+- [`TextExtensions`](SeDipuAlba.Artilugios.Extensions#textextensions)
+- [`UriExtensions`](SeDipuAlba.Artilugios.Extensions#uriextensions)
