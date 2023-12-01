@@ -1,4 +1,4 @@
-# DipuAlba.Artilugios
+# SeDipuAlba.Artilugios
 
 Internal use package with utilities for SEDIPUALB@.
 
