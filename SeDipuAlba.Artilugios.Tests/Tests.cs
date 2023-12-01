@@ -32,5 +32,17 @@ namespace SeDipuAlba.Artilugios.Tests
         {
             Assert.AreEqual("En Espana esta un pinguino", "En España está un pingüino".RemoveDiacritics());
         }
+
+        [Test]
+        public void AddParameter()
+        {
+            var uri = new Uri("http://www.sedipualba.es");
+            uri = uri.AddParameter("id", "1");
+            Assert.AreEqual("http://www.sedipualba.es/?id=1", uri.ToString());
+            uri = uri.AddParameter("hello", "world");
+            Assert.AreEqual("http://www.sedipualba.es/?id=1&hello=world", uri.ToString());
+            uri = uri.AddParameter("urlReturn", "http://españa.aýna.io/?anotherParam=murciélago");
+            Assert.AreEqual("http://www.sedipualba.es/?id=1&hello=world&urlReturn=http%253a%252f%252fespa%25c3%25b1a.a%25c3%25bdna.io%252f%253fanotherParam%253dmurci%25c3%25a9lago", uri.ToString());
+        }
     }
 }
