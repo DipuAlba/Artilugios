@@ -17,12 +17,13 @@ namespace SeDipuAlba.Artilugios.Extensions
         /// <param name="url"></param>
         /// <param name="paramName">Name of the parameter to add.</param>
         /// <param name="paramValue">Value for the parameter to add.</param>
+        /// <param name="urlEncode">Encode the parameter using HttpUtility.UrlEncode.</param>
         /// <returns>Url with added parameter.</returns>
-        public static Uri AddParameter(this Uri url, string paramName, string paramValue)
+        public static Uri AddParameter(this Uri url, string paramName, string paramValue, bool urlEncode = true)
         {
             var uriBuilder = new UriBuilder(url);
             var query = HttpUtility.ParseQueryString(uriBuilder.Query);
-            query[paramName] = HttpUtility.UrlEncode(paramValue);
+            query[paramName] = urlEncode?HttpUtility.UrlEncode(paramValue):paramValue;
             uriBuilder.Query = query.ToString();
 
             return uriBuilder.Uri;
