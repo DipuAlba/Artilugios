@@ -44,5 +44,24 @@ namespace SeDipuAlba.Artilugios.Tests
             uri = uri.AddParameter("urlReturn", "http://españa.aýna.io/?anotherParam=murciélago");
             Assert.AreEqual("http://www.sedipualba.es/?id=1&hello=world&urlReturn=http%253a%252f%252fespa%25c3%25b1a.a%25c3%25bdna.io%252f%253fanotherParam%253dmurci%25c3%25a9lago", uri.ToString());
         }
+
+        [Test]
+        public void EuroCurrencyText()
+        {
+            decimal number = 0.015M;
+            Assert.AreEqual("0,02", number.EuroCurrencyString());
+            Assert.AreEqual("0,01", number.EuroCurrencyString(roundDecimals: false));
+            Assert.AreEqual("0,01 €", number.EuroCurrencyString(roundDecimals: false, addEuroSymbol:true));
+            number = 123456789;
+            Assert.AreEqual("123.456.789,00", number.EuroCurrencyString());
+            Assert.AreEqual("123.456.789", number.EuroCurrencyString(roundDecimals: false, decimalNumbers:0));
+            Assert.AreEqual("123.456.789 €", number.EuroCurrencyString(roundDecimals: false, decimalNumbers:0, addEuroSymbol:true));
+            Assert.AreEqual("123.456.789,00 €", number.EuroCurrencyString(roundDecimals: false, addEuroSymbol:true));
+            number = 123456789.987654321M;
+            Assert.AreEqual("123.456.789,9877", number.EuroCurrencyString(decimalNumbers:4));
+            Assert.AreEqual("123.456.789,9876", number.EuroCurrencyString(decimalNumbers:4, roundDecimals: false));
+            Assert.AreEqual("123.456.789,9876 €", number.EuroCurrencyString(decimalNumbers:4, roundDecimals: false, addEuroSymbol:true));
+
+        }
     }
 }
