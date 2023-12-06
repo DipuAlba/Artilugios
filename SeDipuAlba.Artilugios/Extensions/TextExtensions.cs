@@ -34,7 +34,7 @@ namespace SeDipuAlba.Artilugios.Extensions
         }
 
         /// <summary>
-        /// Devuelve sólo los caracteres indicados en el alfabeto
+        /// Remove all characters from the string that are not specified in alphabet.
         /// </summary>
         public static string RemoveSymbols(this string txt, string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 ")
         {
