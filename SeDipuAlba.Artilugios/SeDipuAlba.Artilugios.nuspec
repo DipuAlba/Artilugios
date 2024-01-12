@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package >
-  <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-	<!-- para añadir -beta al final hay que hacerlo en el fichero .nuspec.plantilla -->
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <license type="expression">EUPL-1.2</license>
-    <projectUrl>http://www.sedipualba.es</projectUrl>
-    <icon>logo-sedipualba.png</icon>
-    <description>$description$</description>
-    <releaseNotes>$id$</releaseNotes>
-    <copyright>$copyright$</copyright>
-    <readme>readme.md</readme>
-	<repository type="git" url="https://github.com/DipuAlba/Artilugios.git" branch="develop" commit="$mycommit$" />
-  </metadata>
+<package>
+	<metadata>
+		<id>$id$</id>
+		<version>$version$</version>
+		<!-- para añadir -beta al final hay que hacerlo en el fichero .nuspec.plantilla -->
+		<title>$title$</title>
+		<authors>$author$</authors>
+		<owners>$author$</owners>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<license type="expression">EUPL-1.2</license>
+		<projectUrl>http://www.sedipualba.es</projectUrl>
+		<icon>logo-sedipualba.png</icon>
+		<description>$description$</description>
+		<releaseNotes>$id$</releaseNotes>
+		<copyright>$copyright$</copyright>
+		<readme>readme.md</readme>
+		<repository type="git" url="https://github.com/DipuAlba/Artilugios.git" branch="develop" commit="$mycommit$"/>
+	</metadata>
 	<files>
-		<file src="readme.md" target="\" />
-		<file src="logo-sedipualba.png" target="\" />
-    </files>
+		<file src="readme.md" target="\"/>
+		<file src="logo-sedipualba.png" target="\"/>
+	</files>
+	<dependencies>
+		<group targetFramework="netstandard2.0">
+		</group>
+	</dependencies>
 </package>
