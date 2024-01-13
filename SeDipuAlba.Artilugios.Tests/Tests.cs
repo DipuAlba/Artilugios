@@ -63,5 +63,16 @@ namespace SeDipuAlba.Artilugios.Tests
             Assert.AreEqual("123.456.789,9876 €", number.EuroCurrencyString(decimalNumbers:4, roundDecimals: false, addEuroSymbol:true));
 
         }
+
+        [Test]
+        public void TruncateText()
+        {
+            Assert.AreEqual("1234567890", "1234567890".Truncate(10));
+            Assert.AreEqual("12345678…", "1234567890".Truncate(9));
+            Assert.AreEqual("123456789", "1234567890".Truncate(9, null));
+            Assert.AreEqual("123456...", "1234567890".Truncate(9, "..."));
+            Assert.AreEqual("ABCDEFGHI", "1234567890".Truncate(9, "ABCDEFGHI"));
+            Assert.AreEqual("1234567890", "1234567890".Truncate(10, "ABCDEFGHI"));
+        }
     }
 }

@@ -52,6 +52,23 @@ namespace SeDipuAlba.Artilugios.Extensions
             return result.ToString();
         }
 
+        /// <summary>
+        /// Truncates a string to a specified maximum length and appends a truncation suffix if necessary.
+        /// </summary>
+        /// <param name="value">The string to truncate.</param>
+        /// <param name="maxLength">The maximum length of the string.</param>
+        /// <param name="truncationSuffix">The suffix to append when truncation occurs (it won't make the result longer).</param>
+        /// <returns>The truncated string with the truncation suffix if truncation occurred.</returns>
+        public static string Truncate(this string value, int maxLength, string truncationSuffix = "…")
+        {
+            if (value?.Length <= maxLength)
+            {
+                return value;
+            }
 
+            int suffixLength = truncationSuffix?.Length ?? 0;
+            maxLength -= suffixLength;
+            return value.Substring(0, maxLength) + truncationSuffix;
+        }
     }
 }
