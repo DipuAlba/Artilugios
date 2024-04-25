@@ -17,15 +17,15 @@ namespace SeDipuAlba.Artilugios.Tests
         [Test]
         public void Java()
         {
-            var result = TimeConversion.JavaTimeStampToDateTime(1713782077851);//2024-04-22 12:34:37.851
-            Assert.AreEqual(new DateTime(2024, 4, 22, 12, 34, 37, 851), result);
+            var result = TimeConversion.JavaTimeStampToDateTime(1713782077851, DateTimeKind.Utc);//2024-04-22 12:34:37.851
+            Assert.AreEqual(new DateTime(2024, 4, 22, 10, 34, 37, 851, DateTimeKind.Utc), result);
         }
 
         [Test]
         public void Unix()
         {
-            var result = TimeConversion.UnixTimeStampToDateTime(1713953234);//2024-04-24 12:07:14
-            Assert.AreEqual(new DateTime(2024, 4, 24, 12, 7, 14), result);
+            var result = TimeConversion.UnixTimeStampToDateTime(1713953234, DateTimeKind.Utc);//2024-04-24 12:07:14
+            Assert.AreEqual(new DateTime(2024, 4, 24, 10, 7, 14, DateTimeKind.Utc), result);
         }
     }
 }

@@ -14,12 +14,16 @@ namespace SeDipuAlba.Artilugios
         /// <param name="unixTimeStamp">The Unix timestamp to convert, represented as a double. 
         /// This value represents the number of seconds that have elapsed since January 1, 1970 (UTC).</param>
         /// <returns>The converted DateTime object adjusted to local time.</returns>
-        public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
+        public static DateTime UnixTimeStampToDateTime(double unixTimeStamp, DateTimeKind timeKind = DateTimeKind.Local)
         {
             // Define the starting point as January 1, 1970 (the Unix epoch) in UTC.
             var dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
             // Add the number of seconds given by unixTimeStamp to the epoch.
-            dateTime = dateTime.AddSeconds(unixTimeStamp).ToLocalTime();
+            dateTime = dateTime.AddSeconds(unixTimeStamp);
+            if (timeKind == DateTimeKind.Local)
+            {
+                dateTime = dateTime.ToLocalTime();
+            }
             // Convert to local time from UTC.
             return dateTime;
         }
@@ -30,12 +34,16 @@ namespace SeDipuAlba.Artilugios
         /// <param name="javaTimeStamp">The Java timestamp to convert, represented as a double.
         /// This value represents the number of milliseconds that have elapsed since January 1, 1970 (UTC).</param>
         /// <returns>The converted DateTime object adjusted to local time.</returns>
-        public static DateTime JavaTimeStampToDateTime(double javaTimeStamp)
+        public static DateTime JavaTimeStampToDateTime(double javaTimeStamp, DateTimeKind timeKind = DateTimeKind.Local)
         {
             // Define the starting point as January 1, 1970 (the Unix epoch) in UTC.
             var dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
             // Add the number of milliseconds given by javaTimeStamp to the epoch.
-            dateTime = dateTime.AddMilliseconds(javaTimeStamp).ToLocalTime();
+            dateTime = dateTime.AddMilliseconds(javaTimeStamp);
+            if (timeKind == DateTimeKind.Local)
+            {
+                dateTime = dateTime.ToLocalTime();
+            }
             // Convert to local time from UTC.
             return dateTime;
         }
