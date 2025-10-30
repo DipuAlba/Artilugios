@@ -7,6 +7,14 @@ namespace SeDipuAlba.Artilugios
 {
     public class SpanishId
     {
+        // Regex constants for legal entity NIF validation
+        private static readonly Regex InvalidCharsRegex = new Regex(@"([^A-W0-9]|[OT]|[^\w])", RegexOptions.Compiled);
+        private static readonly Regex LegalEntityFormatRegex = new Regex(@"^[A-HJ-W]\d{7}$", RegexOptions.Compiled);
+
+        // Regex constants for personal NIF/NIE validation
+        private static readonly Regex PersonalNifNieFormatRegex = new Regex(@"(^\d{8}$)|(^[K-MX-Z]\d{7}$)", RegexOptions.Compiled);
+        private static readonly Regex ExtractNumbersRegex = new Regex(@"(\d{7,8}$)", RegexOptions.Compiled);
+
         /// <summary>
         /// Checks if the NIF/NIE is valid and returns the type: personal NIF, legal entity NIF, or NIE.
         /// </summary>
@@ -18,7 +26,7 @@ namespace SeDipuAlba.Artilugios
             if (nif.Length != 9) return NifType.Invalid;
 
             char controlDigit = nif[8];
-            if (controlDigit == default) return NifType.Invalid;
+            if (controlDigit == 0) return NifType.Invalid;
 
             string nifWithoutControlDigit = nif.Substring(0, 8);
 
@@ -55,14 +63,11 @@ namespace SeDipuAlba.Artilugios
             // followed by 7 numbers and a final letter.
             try
             {
-                Regex re = new Regex(@"(^\d{8}$)|(^[K-MX-Z]\d{7}$)");
-
-                if (!re.IsMatch(nifWithoutControlDigit))
-                    return default;
+                if (!PersonalNifNieFormatRegex.IsMatch(nifWithoutControlDigit))
+                    return '\0';
 
                 // Extract only the numbers from the NIF.
-                re = new Regex(@"(\d{7,8}$)");
-                string numbers = re.Match(nifWithoutControlDigit).Value;
+                string numbers = ExtractNumbersRegex.Match(nifWithoutControlDigit).Value;
 
                 // First character of the NIF.
                 char firstChar = nifWithoutControlDigit[0];
@@ -121,13 +126,10 @@ namespace SeDipuAlba.Artilugios
         /// <returns>The control digit as a character.</returns>
         private static char GetControlDigitForLegalEntityNif(string nifWithoutControlDigit, char lastChar)
         {
-            Regex re = new Regex(@"([^A-W0-9]|[OT]|[^\w])");
+            nifWithoutControlDigit = InvalidCharsRegex.Replace(nifWithoutControlDigit, string.Empty).ToUpper();
 
-            nifWithoutControlDigit = re.Replace(nifWithoutControlDigit, string.Empty).ToUpper();
-            re = new Regex(@"^[A-HJ-W]\d{7}$");
-
-            if (!re.IsMatch(nifWithoutControlDigit))
-                return default;
+            if (!LegalEntityFormatRegex.IsMatch(nifWithoutControlDigit))
+                return '\0';
 
             try
             {
@@ -194,7 +196,7 @@ namespace SeDipuAlba.Artilugios
             }
             catch
             {
-                return default;
+                return '\0';
             }
         }
 
