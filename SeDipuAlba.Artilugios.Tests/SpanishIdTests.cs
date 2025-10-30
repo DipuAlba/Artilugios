@@ -98,5 +98,13 @@ namespace SeDipuAlba.Artilugios.Tests
             Assert.AreEqual(SpanishId.NifType.Invalid, result);
         }
 
+        [Test]
+        public void ValidateNif_Foreign()
+        {
+            string foreign = "L3100000C";
+            var result = SpanishId.ValidateNif(foreign);
+            Assert.AreEqual(SpanishId.NifType.LegalEntityNif, result);
+        }
+
     }
 }
