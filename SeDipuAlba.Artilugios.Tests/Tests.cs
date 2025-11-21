@@ -43,6 +43,24 @@ namespace SeDipuAlba.Artilugios.Tests
             Assert.AreEqual("http://www.sedipualba.es/?id=1&hello=world", uri.ToString());
             uri = uri.AddParameter("urlReturn", "http://españa.aýna.io/?anotherParam=murciélago");
             Assert.AreEqual("http://www.sedipualba.es/?id=1&hello=world&urlReturn=http%253a%252f%252fespa%25c3%25b1a.a%25c3%25bdna.io%252f%253fanotherParam%253dmurci%25c3%25a9lago", uri.ToString());
+            uri = uri.AddParameter("token", "[TOKEN]", false);
+            Assert.AreEqual("http://www.sedipualba.es/?id=1&hello=world&urlReturn=http%253a%252f%252fespa%25c3%25b1a.a%25c3%25bdna.io%252f%253fanotherParam%253dmurci%25c3%25a9lago&token=[TOKEN]", uri.ToString());
+            uri = uri.AddParameter("token", "[TOKEN]");
+            Assert.AreEqual("http://www.sedipualba.es/?id=1&hello=world&urlReturn=http%253a%252f%252fespa%25c3%25b1a.a%25c3%25bdna.io%252f%253fanotherParam%253dmurci%25c3%25a9lago&token=%255bTOKEN%255d", uri.ToString());
+        }
+
+        [Test]
+        public void AddParameterRaw()
+        {
+            var uri = new Uri("http://www.sedipualba.es");
+            uri = uri.AddParameterRaw("id", "1");
+            Assert.AreEqual("http://www.sedipualba.es/?id=1", uri.ToString());
+            uri = uri.AddParameterRaw("hello", "world");
+            Assert.AreEqual("http://www.sedipualba.es/?id=1&hello=world", uri.ToString());
+            uri = uri.AddParameterRaw("urlReturn", "http://españa.aýna.io/?anotherParam=murciélago");
+            Assert.AreEqual("http://www.sedipualba.es/?id=1&hello=world&urlReturn=http://españa.aýna.io/?anotherParam=murciélago", uri.ToString());
+            uri = uri.AddParameterRaw("token", "[TOKEN]");
+            Assert.AreEqual("http://www.sedipualba.es/?id=1&hello=world&urlReturn=http://españa.aýna.io/?anotherParam=murciélago&token=[TOKEN]", uri.ToString());
         }
 
         [Test]
