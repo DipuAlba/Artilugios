@@ -70,6 +70,40 @@ namespace SeDipuAlba.Artilugios
         }
 
         /// <summary>
+        /// Masks a Spanish NIF/NIE value following data minimization criteria.
+        /// </summary>
+        /// <param name="nif">NIF/NIE to mask.</param>
+        /// <param name="maskCharacter">Mask character.</param>
+        /// <returns>Masked NIF/NIE.</returns>
+        public static string MaskSpanishNif(string nif, char maskCharacter = '*')
+        {
+            if (string.IsNullOrWhiteSpace(nif))
+            {
+                throw new ArgumentException("NIF cannot be null or empty.", nameof(nif));
+            }
+
+            string normalizedNif = nif.Trim().ToUpperInvariant();
+            var nifType = SpanishId.ValidateNif(normalizedNif);
+
+            if (nifType == SpanishId.NifType.Invalid)
+            {
+                return CountDigits(normalizedNif) >= 7
+                    ? MaskKeepingDigitsFourToSeven(normalizedNif, maskCharacter)
+                    : MaskKeepingLastFourCharacters(normalizedNif, maskCharacter);
+            }
+
+            switch (nifType)
+            {
+                case SpanishId.NifType.PersonalNif:
+                case SpanishId.NifType.Nie:
+                case SpanishId.NifType.LegalEntityNif:
+                    return MaskKeepingDigitsFourToSeven(normalizedNif, maskCharacter);
+                default:
+                    return new string(maskCharacter, normalizedNif.Length);
+            }
+        }
+
+        /// <summary>
         /// Returns a <see cref="System.String" /> that represents this instance.
         /// </summary>
         /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
@@ -91,6 +125,54 @@ namespace SeDipuAlba.Artilugios
         private void Validate(int number)
         {
             Guard.IsBetweenExclusive(number, 0, _instance.Length, nameof(number));
+        }
+
+        private static string MaskKeepingDigitsFourToSeven(string value, char maskCharacter)
+        {
+            var maskedChars = new char[value.Length];
+            int digitPosition = 0;
+            for (int i = 0; i < value.Length; i++)
+            {
+                char current = value[i];
+                if (char.IsDigit(current))
+                {
+                    digitPosition++;
+                    maskedChars[i] = (digitPosition >= 4 && digitPosition <= 7) ? current : maskCharacter;
+                }
+                else
+                {
+                    maskedChars[i] = maskCharacter;
+                }
+            }
+
+            return new string(maskedChars);
+        }
+
+        private static string MaskKeepingLastFourCharacters(string value, char maskCharacter)
+        {
+            int unmaskedStart = Math.Max(0, value.Length - 4);
+            var maskedChars = new char[value.Length];
+
+            for (int i = 0; i < value.Length; i++)
+            {
+                maskedChars[i] = i >= unmaskedStart ? value[i] : maskCharacter;
+            }
+
+            return new string(maskedChars);
+        }
+
+        private static int CountDigits(string value)
+        {
+            int count = 0;
+            for (int i = 0; i < value.Length; i++)
+            {
+                if (char.IsDigit(value[i]))
+                {
+                    count++;
+                }
+            }
+
+            return count;
         }
 
         // Sets or unsets the mask for a range of characters
